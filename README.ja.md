@@ -3,9 +3,9 @@
 [![zh-CN](https://img.shields.io/badge/lang-zh--CN-yellow.svg)](https://github.com/rainday/spec-driven-claude-code/blob/main/README.zh-CN.md)
 [![ja](https://img.shields.io/badge/lang-ja-blue.svg)](https://github.com/rainday/spec-driven-claude-code/blob/main/README.ja.md)
 
-# 仕様駆動 Claude コード
+# Spec-Driven Claude Code
 
-Kiro 仕様駆動開発の原則に基づいて構築された強力なコードエージェントで、インテリジェントな自動化と体系的なタスク管理を通じてソフトウェア開発ワークフローを効率化することを目的としています。
+Kiro Spec-Driven 開発の原則に基づいて構築された強力なコードエージェントで、インテリジェントな自動化と体系的なタスク管理を通じてソフトウェア開発ワークフローを効率化することを目的としています。
 
 ## 🌟 機能
 

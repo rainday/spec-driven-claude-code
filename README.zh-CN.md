@@ -3,9 +3,9 @@
 [![zh-CN](https://img.shields.io/badge/lang-zh--CN-yellow.svg)](https://github.com/rainday/spec-driven-claude-code/blob/main/README.zh-CN.md)
 [![ja](https://img.shields.io/badge/lang-ja-blue.svg)](https://github.com/rainday/spec-driven-claude-code/blob/main/README.ja.md)
 
-# 规格驱动 Claude 代码
+# Spec-Driven Claude Code
 
-基于 Kiro 规格驱动开发原则构建的强大代码代理，旨在通过智能自动化和系统化任务管理来简化软件开发工作流程。
+基于 Kiro Spec-Driven 开发原则构建的强大代码代理，旨在通过智能自动化和系统化任务管理来简化软件开发工作流程。
 
 ## 🌟 功能特色
 
