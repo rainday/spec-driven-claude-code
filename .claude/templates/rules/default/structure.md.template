@@ -1,0 +1,318 @@
+---
+title: Project Structure
+description: "File organization, naming conventions, and structural guidelines."
+inclusion: always
+last_updated: {{last_updated}}
+version: 1.0
+---
+
+# Project Structure & Organization
+
+## Directory Structure Overview
+
+### Root Level Organization
+```
+{{project_name}}/
+├── .claude/rules/ # AI governance and documentation
+├── src/ # Source code
+├── public/ # Static assets (frontend)
+├── docs/ # Project documentation
+├── tests/ # Test files
+├── scripts/ # Build and utility scripts
+├── config/ # Configuration files
+├── .github/ # GitHub workflows and templates
+└── tools/ # Development tools and utilities
+```
+
+### Source Code Organization
+
+#### Frontend Structure (src/)
+```
+src/
+├── components/ # Reusable UI components
+│ ├── common/ # Shared components
+│ ├── forms/ # Form-specific components
+│ ├── layout/ # Layout components
+│ └── ui/ # Basic UI elements
+├── pages/ # Route/page level components
+│ ├── auth/ # Authentication pages
+│ ├── dashboard/ # Dashboard pages
+│ └── settings/ # Settings pages
+├── hooks/ # Custom React hooks
+│ ├── useAuth.js # Authentication hooks
+│ ├── useApi.js # API interaction hooks
+│ └── useLocalStorage.js # Storage hooks
+├── services/ # External service integrations
+│ ├── api.js # API client configuration
+│ ├── auth.js # Authentication service
+│ └── analytics.js # Analytics service
+├── store/ # State management
+│ ├── slices/ # Redux slices or Zustand stores
+│ ├── middleware/ # Store middleware
+│ └── index.js # Store configuration
+├── utils/ # Helper functions and utilities
+│ ├── constants.js # Application constants
+│ ├── formatters.js # Data formatting utilities
+│ └── validators.js # Input validation utilities
+├── types/ # TypeScript type definitions
+│ ├── api.ts # API response types
+│ ├── user.ts # User-related types
+│ └── common.ts # Shared types
+├── styles/ # Styling files
+│ ├── globals.css # Global styles
+│ ├── components/ # Component-specific styles
+│ └── themes/ # Theme configurations
+├── assets/ # Static assets
+│ ├── images/ # Image files
+│ ├── icons/ # Icon files
+│ └── fonts/ # Font files
+└── **tests**/ # Component tests
+├── components/ # Component test files
+├── hooks/ # Hook test files
+└── utils/ # Utility test files
+```
+
+#### Backend Structure (src/ or server/)
+```
+src/
+├── controllers/ # Request handlers
+│ ├── auth.controller.js # Authentication endpoints
+│ ├── user.controller.js # User management endpoints
+│ └── api.controller.js # Main API endpoints
+├── models/ # Data models and schemas
+│ ├── User.js # User model
+│ ├── Product.js # Product model
+│ └── index.js # Model exports
+├── services/ # Business logic layer
+│ ├── auth.service.js # Authentication business logic
+│ ├── user.service.js # User management logic
+│ └── email.service.js # Email service logic
+├── middleware/ # Express middleware
+│ ├── auth.middleware.js # Authentication middleware
+│ ├── cors.middleware.js # CORS configuration
+│ └── error.middleware.js # Error handling
+├── routes/ # API route definitions
+│ ├── auth.routes.js # Authentication routes
+│ ├── user.routes.js # User routes
+│ └── index.js # Route aggregation
+├── config/ # Configuration files
+│ ├── database.js # Database configuration
+│ ├── environment.js # Environment variables
+│ └── security.js # Security configuration
+├── utils/ # Backend utilities
+│ ├── logger.js # Logging utility
+│ ├── validators.js # Input validation
+│ └── helpers.js # General helpers
+├── migrations/ # Database migrations
+│ ├── 001_create_users.js
+│ └── 002_create_products.js
+├── seeds/ # Database seed files
+│ ├── users.seed.js
+│ └── products.seed.js
+└── **tests**/ # API tests
+├── controllers/ # Controller tests
+├── services/ # Service tests
+└── integration/ # Integration tests
+```
+
+## File Naming Conventions
+
+### Component Files
+**React Components:**
+- PascalCase for component files: `UserProfile.jsx`
+- Corresponding test files: `UserProfile.test.jsx`
+- Style files: `UserProfile.styles.css` or `UserProfile.module.css`
+- Story files: `UserProfile.stories.jsx`
+
+**Vue Components:**
+- PascalCase for component files: `UserProfile.vue`
+- Test files: `UserProfile.spec.js`
+- Style files: included in .vue file or separate `.scss`
+
+### Utility and Service Files
+**JavaScript/TypeScript Files:**
+- camelCase for utility files: `dateFormatter.js`
+- camelCase for service files: `authService.js`
+- camelCase for hook files: `useUserData.js`
+- kebab-case for configuration files: `api-config.js`
+
+### Asset Files
+**Image Files:**
+- kebab-case with descriptive names: `user-avatar-placeholder.png`
+- Include size in filename when applicable: `logo-small-32x32.png`
+
+**Icon Files:**
+- kebab-case with `icon-` prefix: `icon-user-settings.svg`
+- Use consistent sizing: `icon-name-24.svg`
+
+## Code Organization Principles
+
+### Component Organization
+**Single Responsibility:**
+- Each component has one clear purpose
+- Components are composable and reusable
+- Props interface is minimal and clear
+
+**Component Hierarchy:**
+```
+Pages (Route components)
+├── Layouts (Page structure)
+│ ├── Sections (Page sections)
+│ │ ├── Components (Feature components)
+│ │ │ └── UI Elements (Basic components)
+```
+
+**Component File Structure:**
+```
+ComponentName/
+├── index.js # Export file
+├── ComponentName.jsx # Main component
+├── ComponentName.test.jsx # Unit tests
+├── ComponentName.stories.jsx # Storybook stories
+└── ComponentName.styles.css # Component styles
+```
+
+### Service Layer Organization
+**API Services:**
+- Group related API calls in service files
+- Use consistent naming for CRUD operations
+- Implement error handling and retry logic
+- Include TypeScript types for requests/responses
+
+**Business Logic Services:**
+- Separate from API services
+- Pure functions when possible
+- Clear input/output interfaces
+- Comprehensive unit test coverage
+
+### State Management Organization
+**Global State:**
+- User authentication state
+- Application configuration
+- Shared UI state (modals, notifications)
+
+**Local State:**
+- Component-specific data
+- Form state
+- Temporary UI state
+
+**State Structure:**
+```javascript
+{
+  auth: {
+    user: {},
+    token: '',
+    isAuthenticated: false
+  },
+  ui: {
+    theme: 'light',
+    sidebarOpen: false,
+    notifications: []
+  },
+  data: {
+    users: {},
+    products: {},
+    cache: {}
+  }
+}
+```
+
+## Import/Export Standards
+
+### Import Organization
+```javascript
+// 1. Node modules
+import React, { useState, useEffect } from "react";
+import { Router } from "express";
+import axios from "axios";
+
+// 2. Internal services/utilities
+import { authService } from "../services/auth";
+import { formatDate } from "../utils/formatters";
+
+// 3. Components
+import Header from "./Header";
+import UserProfile from "./UserProfile";
+
+// 4. Types (TypeScript)
+import type { User, ApiResponse } from "../types";
+
+// 5. Styles
+import "./Component.styles.css";
+```
+
+### Export Standards
+**Named Exports (Preferred):**
+```javascript
+export const ComponentName = () => { ... };
+export const helperFunction = () => { ... };
+```
+
+**Default Exports:**
+```javascript
+const ComponentName = () => { ... };
+export default ComponentName;
+```
+
+**Index Files:**
+```javascript
+// components/index.js
+export { default as Header } from "./Header";
+export { default as Footer } from "./Footer";
+export { default as UserProfile } from "./UserProfile";
+```
+
+## Documentation Standards
+
+### Code Documentation
+**Function Documentation:**
+```javascript
+/**
+ * Formats a date string for display
+ * @param {string} dateString - ISO date string
+ * @param {string} format - Display format ('short' | 'long' | 'relative')
+ * @returns {string} Formatted date string
+ */
+export const formatDate = (dateString, format = "short") => {
+  // Implementation
+};
+```
+
+**Component Documentation:**
+```javascript
+/**
+ * UserProfile component displays user information and actions
+ *
+ * @component
+ * @param {Object} props
+ * @param {User} props.user - User object containing profile data
+ * @param {Function} props.onEdit - Callback for edit action
+ * @param {boolean} props.editable - Whether profile can be edited
+ */
+export const UserProfile = ({ user, onEdit, editable = false }) => {
+  // Component implementation
+};
+```
+
+## Quality Assurance
+
+### Code Quality Checks
+- ESLint/Prettier configuration enforced
+- TypeScript strict mode enabled
+- Unit test coverage > 80%
+- Integration test coverage for critical paths
+- Accessibility testing for UI components
+
+### Performance Guidelines
+- Bundle size monitoring
+- Lazy loading for routes and heavy components
+- Image optimization and responsive images
+- Database query optimization
+- Caching strategies implemented
+
+### Security Guidelines
+- Input validation on all user inputs
+- Authentication required for protected routes
+- HTTPS enforced in production
+- Environment variables for sensitive data
+- Regular dependency security audits 

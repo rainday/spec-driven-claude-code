@@ -68,7 +68,7 @@ Kiro Spec-Driven 開発の原則に基づいて構築された強力なコード
 **主要機能**:
 
 - 既存プロジェクトを分析して技術アーキテクチャを抽出
-- 包括的なプロジェクトガバナンスドキュメント (rules/) を作成
+- 包括的なプロジェクトガバナンスドキュメント (.claude/rules/) を作成
 - 製品ビジョン、組織構造、デザインシステムを確立
 - AI エージェントとチームのための標準化されたガバナンスドキュメントを提供
 
@@ -87,11 +87,11 @@ Kiro Spec-Driven 開発の原則に基づいて構築された強力なコード
 
 **作成内容**:
 
-- `rules/product.md` - 製品ビジョンと機能ガイドライン
-- `rules/tech.md` - 技術スタックと技術標準
-- `rules/structure.md` - プロジェクト組織とファイル構造
-- `rules/style-guide.md` - UI/UX デザインシステムと標準
-- `rules/development.md` - 開発ワークフローとプロセス
+- `.claude/rules/product.md` - 製品ビジョンと機能ガイドライン
+- `.claude/rules/tech.md` - 技術スタックと技術標準
+- `.claude/rules/structure.md` - プロジェクト組織とファイル構造
+- `.claude/rules/style-guide.md` - UI/UX デザインシステムと標準
+- `.claude/rules/development.md` - 開発ワークフローとプロセス
 
 ### 📊 戦略プランナーエージェント
 
@@ -279,7 +279,7 @@ claude-code-agent/
 │   ├── task-manager/
 │   ├── bug-fixer/
 │   └── code-reviewer/
-├── rules/
+├── .claude/rules/
 │   ├── product.md
 │   ├── tech.md
 │   ├── structure.md

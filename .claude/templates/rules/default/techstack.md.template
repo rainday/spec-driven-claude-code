@@ -1,0 +1,143 @@
+---
+title: Technology Stack
+description: "Technology stack, frameworks, and technical standards."
+inclusion: always
+last_updated: {{last_updated}}
+version: 1.0
+---
+
+# Technology Stack & Standards
+
+## Technology Stack Overview
+
+### Frontend Technology
+**Primary Framework:** {{frontend_framework}}
+**Version:** {{frontend_version}}
+**Key Libraries:**
+- UI Framework: {{ui_framework}}
+- State Management: {{state_management}}
+- Routing: {{routing_library}}
+- Form Handling: {{form_library}}
+- HTTP Client: {{http_client}}
+
+### Backend Technology
+**Runtime:** {{backend_runtime}}
+**Framework:** {{backend_framework}}
+**Version:** {{backend_version}}
+
+### Database & Storage
+**Primary Database:** {{primary_database}}
+**Caching:** {{caching_solution}}
+**File Storage:** {{file_storage}}
+
+### Development Tools
+**Package Manager:** {{package_manager}}
+**Build Tool:** {{build_tool}}
+**Type Checking:** {{type_checking}}
+**Code Quality:** {{code_quality_tools}}
+**Testing:** {{testing_framework}}
+
+## Architecture Patterns
+
+### Design Patterns
+**Frontend Patterns:**
+- {{frontend_pattern_1}}
+- {{frontend_pattern_2}}
+
+**Backend Patterns:**
+- {{backend_pattern_1}}
+- {{backend_pattern_2}}
+
+### Code Organization
+**Frontend Structure:**
+```
+src/
+├── components/ # Reusable UI components
+├── pages/ # Route-level components
+├── hooks/ # Custom React hooks
+├── services/ # API and external service calls
+├── utils/ # Helper functions and utilities
+├── types/ # TypeScript type definitions
+└── styles/ # CSS and styling files
+```
+
+**Backend Structure:**
+```
+src/
+├── controllers/ # Request handlers
+├── models/ # Data models and schemas
+├── services/ # Business logic
+├── middleware/ # Express middleware
+├── routes/ # API route definitions
+├── utils/ # Helper functions
+└── config/ # Configuration files
+```
+
+## Development Standards
+
+### Code Quality Standards
+**Naming Conventions:**
+- Variables: camelCase
+- Functions: camelCase
+- Classes: PascalCase
+- Constants: UPPER_SNAKE_CASE
+- Files: kebab-case for components, camelCase for utilities
+
+**Code Style:**
+- Maximum line length: 100 characters
+- Indentation: 2 spaces
+- Semicolons: Required (JavaScript/TypeScript)
+- Quotes: Single quotes for strings
+- Trailing commas: Required in multiline structures
+
+### Performance Standards
+**Frontend Performance:**
+- First Contentful Paint: < 2 seconds
+- Time to Interactive: < 3 seconds
+- Bundle size: < 500KB gzipped
+
+**Backend Performance:**
+- API Response Time: < 200ms (95th percentile)
+- Database Query Time: < 100ms average
+
+### Security Standards
+**Authentication:**
+- JWT tokens with secure signing
+- Token expiration: 24 hours
+- HTTPS only in production
+
+**Data Protection:**
+- Input validation and sanitization
+- SQL injection prevention
+- XSS protection headers
+
+## Development Workflow
+
+### Git Workflow
+**Branch Strategy:** {{branch_strategy}}
+**Branch Naming:**
+- Feature: `feature/[ticket-id]-[description]`
+- Bugfix: `bugfix/[ticket-id]-[description]`
+- Hotfix: `hotfix/[ticket-id]-[description]`
+
+**Commit Standards:**
+- Conventional Commits format
+- Clear, descriptive commit messages
+- Atomic commits (one change per commit)
+
+### Code Review Standards
+**Review Requirements:**
+- All code changes require review
+- Automated tests must pass
+- Security scan must pass
+- Documentation updated if needed
+
+### Deployment Standards
+**Environment Strategy:**
+- Development: Local development environment
+- Staging: Pre-production testing
+- Production: Live user environment
+
+**Deployment Process:**
+- Automated CI/CD pipeline
+- Health checks and monitoring 

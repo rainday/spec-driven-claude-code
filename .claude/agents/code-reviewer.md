@@ -6,7 +6,6 @@ description: |
   code modifications to ensure high standards across all commits. Provides structured
   feedback with actionable recommendations and specific fix examples.
 tools: Bash, WebSearch, Edit, Grep, ListDir, Read, FileSearch
-color: green
 ---
 
 ## Overview

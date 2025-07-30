@@ -1,0 +1,289 @@
+---
+title: Technical Architecture & Standards
+description: "Comprehensive technology stack, patterns, and enterprise technical standards."
+inclusion: always
+last_updated: {{last_updated}}
+version: 1.0
+---
+
+# Technical Architecture & Standards
+
+## Technology Stack Overview
+
+### Frontend Technology
+**Primary Framework:** {{frontend_framework}}
+**Version:** {{frontend_version}}
+**Key Libraries:**
+- UI Framework: {{ui_framework}}
+- State Management: {{state_management}}
+- Routing: {{routing_library}}
+- Form Handling: {{form_library}}
+- HTTP Client: {{http_client}}
+- Testing: {{frontend_testing}}
+- Build Tool: {{frontend_build_tool}}
+
+### Backend Technology
+**Runtime:** {{backend_runtime}}
+**Framework:** {{backend_framework}}
+**Version:** {{backend_version}}
+**API Design:** {{api_design_pattern}}
+**Authentication:** {{authentication_method}}
+
+### Database & Storage
+**Primary Database:** {{primary_database}}
+**Secondary Database:** {{secondary_database}}
+**Caching:** {{caching_solution}}
+**File Storage:** {{file_storage}}
+**Search:** {{search_engine}}
+**Message Queue:** {{message_queue}}
+
+### Infrastructure & DevOps
+**Cloud Provider:** {{cloud_provider}}
+**Containerization:** {{containerization}}
+**Orchestration:** {{orchestration}}
+**CI/CD:** {{cicd_platform}}
+**Monitoring:** {{monitoring_tool}}
+**Logging:** {{logging_solution}}
+
+### Development Tools
+**Package Manager:** {{package_manager}}
+**Build Tool:** {{build_tool}}
+**Type Checking:** {{type_checking}}
+**Code Quality:** {{code_quality_tools}}
+**Testing:** {{testing_framework}}
+**Documentation:** {{documentation_tool}}
+
+## Architecture Patterns
+
+### Design Patterns
+**Frontend Patterns:**
+- {{frontend_pattern_1}}
+- {{frontend_pattern_2}}
+- {{frontend_pattern_3}}
+
+**Backend Patterns:**
+- {{backend_pattern_1}}
+- {{backend_pattern_2}}
+- {{backend_pattern_3}}
+
+**Data Patterns:**
+- {{data_pattern_1}}
+- {{data_pattern_2}}
+
+**Integration Patterns:**
+- {{integration_pattern_1}}
+- {{integration_pattern_2}}
+
+### Microservices Architecture
+**Service Boundaries:**
+- {{service_1}}: {{service_1_responsibility}}
+- {{service_2}}: {{service_2_responsibility}}
+- {{service_3}}: {{service_3_responsibility}}
+
+**Communication Patterns:**
+- Synchronous: {{sync_communication}}
+- Asynchronous: {{async_communication}}
+- Event-Driven: {{event_driven_pattern}}
+
+### Security Architecture
+**Authentication & Authorization:**
+- {{auth_method_1}}: {{auth_method_1_description}}
+- {{auth_method_2}}: {{auth_method_2_description}}
+
+**Data Protection:**
+- Encryption at rest: {{encryption_at_rest}}
+- Encryption in transit: {{encryption_in_transit}}
+- Key management: {{key_management}}
+
+## Development Standards
+
+### Code Quality Standards
+**Naming Conventions:**
+- Variables: camelCase
+- Functions: camelCase
+- Classes: PascalCase
+- Constants: UPPER_SNAKE_CASE
+- Files: kebab-case for components, camelCase for utilities
+- Database: snake_case
+- API endpoints: kebab-case
+
+**Code Style:**
+- Maximum line length: 100 characters
+- Indentation: 2 spaces
+- Semicolons: Required (JavaScript/TypeScript)
+- Quotes: Single quotes for strings
+- Trailing commas: Required in multiline structures
+- Import ordering: Standard library, third-party, internal
+
+### Performance Standards
+**Frontend Performance:**
+- First Contentful Paint: < 2 seconds
+- Time to Interactive: < 3 seconds
+- Cumulative Layout Shift: < 0.1
+- Bundle size: < 500KB gzipped
+- Lighthouse score: > 90
+
+**Backend Performance:**
+- API Response Time: < 200ms (95th percentile)
+- Database Query Time: < 100ms average
+- Memory Usage: < 512MB per instance
+- CPU Usage: < 70% average
+- Throughput: {{throughput_target}} requests/second
+
+### Security Standards
+**Authentication:**
+- JWT tokens with secure signing
+- Token expiration: 24 hours
+- Refresh token rotation
+- Multi-factor authentication support
+- OAuth 2.0 / OpenID Connect
+
+**Data Protection:**
+- HTTPS only in production
+- Data encryption at rest (AES-256)
+- Input validation and sanitization
+- SQL injection prevention
+- XSS protection headers
+- CSRF protection
+- Rate limiting
+
+**Compliance:**
+- {{compliance_standard_1}}: {{compliance_requirement_1}}
+- {{compliance_standard_2}}: {{compliance_requirement_2}}
+
+## Development Workflow
+
+### Git Workflow
+**Branch Strategy:** {{branch_strategy}}
+**Branch Naming:**
+- Feature: `feature/[ticket-id]-[description]`
+- Bugfix: `bugfix/[ticket-id]-[description]`
+- Hotfix: `hotfix/[ticket-id]-[description]`
+- Release: `release/[version]`
+
+**Commit Standards:**
+- Conventional Commits format
+- Clear, descriptive commit messages
+- Atomic commits (one change per commit)
+- Sign-off required for production
+- GPG signing for security
+
+### Code Review Standards
+**Review Requirements:**
+- All code changes require review
+- Automated tests must pass
+- Security scan must pass
+- Performance impact assessed
+- Documentation updated if needed
+- Accessibility requirements met
+- Compliance requirements verified
+
+**Review Process:**
+- Minimum 2 approvals required
+- Security team review for sensitive changes
+- Architecture review for major changes
+- Performance review for optimization changes
+
+### Deployment Standards
+**Environment Strategy:**
+- Development: Local development environment
+- Integration: Automated testing environment
+- Staging: Pre-production testing
+- Production: Live user environment
+- Disaster Recovery: Backup environment
+
+**Deployment Process:**
+- Automated CI/CD pipeline
+- Blue-green deployment strategy
+- Canary deployments for major changes
+- Rollback capabilities
+- Health checks and monitoring
+- Database migration strategy
+
+## Quality Assurance
+
+### Testing Strategy
+**Unit Testing:**
+- Coverage requirement: > 80%
+- Framework: {{unit_testing_framework}}
+- Mocking strategy: {{mocking_strategy}}
+
+**Integration Testing:**
+- API testing: {{api_testing_framework}}
+- Database testing: {{database_testing_strategy}}
+- End-to-end testing: {{e2e_testing_framework}}
+
+**Performance Testing:**
+- Load testing: {{load_testing_tool}}
+- Stress testing: {{stress_testing_strategy}}
+- Performance benchmarks: {{performance_benchmarks}}
+
+**Security Testing:**
+- Static analysis: {{static_analysis_tool}}
+- Dynamic analysis: {{dynamic_analysis_tool}}
+- Penetration testing: {{penetration_testing_schedule}}
+
+### Monitoring & Observability
+**Application Monitoring:**
+- APM tool: {{apm_tool}}
+- Error tracking: {{error_tracking_tool}}
+- Performance monitoring: {{performance_monitoring}}
+
+**Infrastructure Monitoring:**
+- System metrics: {{system_monitoring}}
+- Resource utilization: {{resource_monitoring}}
+- Alert management: {{alert_management}}
+
+**Logging:**
+- Centralized logging: {{centralized_logging}}
+- Log levels: {{log_levels}}
+- Log retention: {{log_retention_policy}}
+
+## Technical Debt Management
+
+### Debt Classification
+**Level 1 (Low):** Minor code style issues, outdated comments
+**Level 2 (Medium):** Deprecated dependencies, performance optimizations
+**Level 3 (High):** Security vulnerabilities, breaking changes needed
+**Level 4 (Critical):** System instability, major architecture flaws
+
+### Debt Resolution
+- Technical debt tracked in project management tool
+- Regular debt assessment and prioritization
+- 20% of development time allocated to debt reduction
+- Architecture review for major changes
+- Quarterly technical debt review
+
+## Disaster Recovery & Business Continuity
+
+### Backup Strategy
+- Database backups: {{database_backup_schedule}}
+- File storage backups: {{file_backup_schedule}}
+- Configuration backups: {{config_backup_schedule}}
+- Recovery time objective: {{rto_target}}
+- Recovery point objective: {{rpo_target}}
+
+### High Availability
+- Multi-region deployment: {{multi_region_deployment}}
+- Load balancing: {{load_balancing_strategy}}
+- Auto-scaling: {{auto_scaling_configuration}}
+- Failover procedures: {{failover_procedures}}
+
+## Compliance & Governance
+
+### Regulatory Compliance
+- {{regulation_1}}: {{compliance_requirement_1}}
+- {{regulation_2}}: {{compliance_requirement_2}}
+- {{regulation_3}}: {{compliance_requirement_3}}
+
+### Audit Requirements
+- Code audit: {{code_audit_schedule}}
+- Security audit: {{security_audit_schedule}}
+- Performance audit: {{performance_audit_schedule}}
+- Compliance audit: {{compliance_audit_schedule}}
+
+### Change Management
+- Change approval process: {{change_approval_process}}
+- Emergency change procedures: {{emergency_change_procedures}}
+- Rollback procedures: {{rollback_procedures}}
+- Communication plan: {{communication_plan}} 

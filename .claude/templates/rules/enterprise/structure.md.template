@@ -1,0 +1,496 @@
+---
+title: Project Structure & Organization
+description: "Comprehensive file organization, naming conventions, and enterprise structural guidelines."
+inclusion: always
+last_updated: {{last_updated}}
+version: 1.0
+---
+
+# Project Structure & Organization
+
+## Directory Structure Overview
+
+### Root Level Organization
+```
+{{project_name}}/
+├── .claude/rules/ # AI governance and documentation
+├── src/ # Source code
+├── public/ # Static assets (frontend)
+├── docs/ # Project documentation
+├── tests/ # Test files
+├── scripts/ # Build and utility scripts
+├── config/ # Configuration files
+├── .github/ # GitHub workflows and templates
+├── docker/ # Docker configuration
+├── k8s/ # Kubernetes manifests
+├── terraform/ # Infrastructure as Code
+├── tools/ # Development tools and utilities
+├── migrations/ # Database migrations
+├── seeds/ # Database seed files
+└── monitoring/ # Monitoring and alerting configs
+```
+
+### Source Code Organization
+
+#### Frontend Structure (src/)
+```
+src/
+├── components/ # Reusable UI components
+│ ├── common/ # Shared components
+│ ├── forms/ # Form-specific components
+│ ├── layout/ # Layout components
+│ ├── ui/ # Basic UI elements
+│ └── business/ # Business-specific components
+├── pages/ # Route/page level components
+│ ├── auth/ # Authentication pages
+│ ├── dashboard/ # Dashboard pages
+│ ├── admin/ # Admin pages
+│ ├── reports/ # Reporting pages
+│ └── settings/ # Settings pages
+├── hooks/ # Custom React hooks
+│ ├── useAuth.js # Authentication hooks
+│ ├── useApi.js # API interaction hooks
+│ ├── useLocalStorage.js # Storage hooks
+│ └── usePermissions.js # Permission hooks
+├── services/ # External service integrations
+│ ├── api.js # API client configuration
+│ ├── auth.js # Authentication service
+│ ├── analytics.js # Analytics service
+│ ├── notifications.js # Notification service
+│ └── websocket.js # WebSocket service
+├── store/ # State management
+│ ├── slices/ # Redux slices or Zustand stores
+│ ├── middleware/ # Store middleware
+│ ├── selectors/ # State selectors
+│ └── index.js # Store configuration
+├── utils/ # Helper functions and utilities
+│ ├── constants.js # Application constants
+│ ├── formatters.js # Data formatting utilities
+│ ├── validators.js # Input validation utilities
+│ ├── permissions.js # Permission utilities
+│ └── encryption.js # Encryption utilities
+├── types/ # TypeScript type definitions
+│ ├── api.ts # API response types
+│ ├── user.ts # User-related types
+│ ├── business.ts # Business logic types
+│ └── common.ts # Shared types
+├── styles/ # Styling files
+│ ├── globals.css # Global styles
+│ ├── components/ # Component-specific styles
+│ ├── themes/ # Theme configurations
+│ └── variables.css # CSS custom properties
+├── assets/ # Static assets
+│ ├── images/ # Image files
+│ ├── icons/ # Icon files
+│ ├── fonts/ # Font files
+│ └── documents/ # Document templates
+├── locales/ # Internationalization
+│ ├── en/ # English translations
+│ ├── es/ # Spanish translations
+│ └── zh/ # Chinese translations
+└── **tests**/ # Component tests
+├── components/ # Component test files
+├── hooks/ # Hook test files
+├── utils/ # Utility test files
+└── integration/ # Integration tests
+```
+
+#### Backend Structure (src/ or server/)
+```
+src/
+├── controllers/ # Request handlers
+│ ├── auth.controller.js # Authentication endpoints
+│ ├── user.controller.js # User management endpoints
+│ ├── admin.controller.js # Admin endpoints
+│ ├── report.controller.js # Reporting endpoints
+│ └── api.controller.js # Main API endpoints
+├── models/ # Data models and schemas
+│ ├── User.js # User model
+│ ├── Product.js # Product model
+│ ├── Order.js # Order model
+│ ├── Audit.js # Audit model
+│ └── index.js # Model exports
+├── services/ # Business logic layer
+│ ├── auth.service.js # Authentication business logic
+│ ├── user.service.js # User management logic
+│ ├── email.service.js # Email service logic
+│ ├── notification.service.js # Notification logic
+│ ├── report.service.js # Reporting logic
+│ └── audit.service.js # Audit logging logic
+├── middleware/ # Express middleware
+│ ├── auth.middleware.js # Authentication middleware
+│ ├── cors.middleware.js # CORS configuration
+│ ├── rateLimit.middleware.js # Rate limiting
+│ ├── audit.middleware.js # Audit logging
+│ ├── permissions.middleware.js # Permission checking
+│ └── error.middleware.js # Error handling
+├── routes/ # API route definitions
+│ ├── auth.routes.js # Authentication routes
+│ ├── user.routes.js # User routes
+│ ├── admin.routes.js # Admin routes
+│ ├── report.routes.js # Report routes
+│ └── index.js # Route aggregation
+├── config/ # Configuration files
+│ ├── database.js # Database configuration
+│ ├── environment.js # Environment variables
+│ ├── security.js # Security configuration
+│ ├── logging.js # Logging configuration
+│ └── monitoring.js # Monitoring configuration
+├── utils/ # Backend utilities
+│ ├── logger.js # Logging utility
+│ ├── validators.js # Input validation
+│ ├── helpers.js # General helpers
+│ ├── encryption.js # Encryption utilities
+│ └── permissions.js # Permission utilities
+├── migrations/ # Database migrations
+│ ├── 001_create_users.js
+│ ├── 002_create_products.js
+│ ├── 003_create_orders.js
+│ └── 004_create_audit_logs.js
+├── seeds/ # Database seed files
+│ ├── users.seed.js
+│ ├── products.seed.js
+│ └── permissions.seed.js
+├── jobs/ # Background jobs
+│ ├── email.job.js # Email processing
+│ ├── report.job.js # Report generation
+│ └── cleanup.job.js # Data cleanup
+└── **tests**/ # API tests
+├── controllers/ # Controller tests
+├── services/ # Service tests
+├── middleware/ # Middleware tests
+└── integration/ # Integration tests
+```
+
+#### Microservices Structure (if applicable)
+```
+services/
+├── auth-service/ # Authentication microservice
+│ ├── src/
+│ ├── tests/
+│ ├── Dockerfile
+│ └── package.json
+├── user-service/ # User management microservice
+│ ├── src/
+│ ├── tests/
+│ ├── Dockerfile
+│ └── package.json
+├── product-service/ # Product management microservice
+│ ├── src/
+│ ├── tests/
+│ ├── Dockerfile
+│ └── package.json
+└── api-gateway/ # API Gateway
+    ├── src/
+    ├── tests/
+    ├── Dockerfile
+    └── package.json
+```
+
+## File Naming Conventions
+
+### Component Files
+**React Components:**
+- PascalCase for component files: `UserProfile.jsx`
+- Corresponding test files: `UserProfile.test.jsx`
+- Style files: `UserProfile.styles.css` or `UserProfile.module.css`
+- Story files: `UserProfile.stories.jsx`
+- Type files: `UserProfile.types.ts`
+
+**Vue Components:**
+- PascalCase for component files: `UserProfile.vue`
+- Test files: `UserProfile.spec.js`
+- Style files: included in .vue file or separate `.scss`
+
+### Utility and Service Files
+**JavaScript/TypeScript Files:**
+- camelCase for utility files: `dateFormatter.js`
+- camelCase for service files: `authService.js`
+- camelCase for hook files: `useUserData.js`
+- kebab-case for configuration files: `api-config.js`
+- camelCase for middleware files: `authMiddleware.js`
+
+### Asset Files
+**Image Files:**
+- kebab-case with descriptive names: `user-avatar-placeholder.png`
+- Include size in filename when applicable: `logo-small-32x32.png`
+- Include format: `icon-user-settings.svg`
+
+**Icon Files:**
+- kebab-case with `icon-` prefix: `icon-user-settings.svg`
+- Use consistent sizing: `icon-name-24.svg`
+
+**Document Files:**
+- kebab-case with descriptive names: `user-manual-v2.pdf`
+- Include version: `api-documentation-v1.2.md`
+
+## Code Organization Principles
+
+### Component Organization
+**Single Responsibility:**
+- Each component has one clear purpose
+- Components are composable and reusable
+- Props interface is minimal and clear
+- Components are testable in isolation
+
+**Component Hierarchy:**
+```
+Pages (Route components)
+├── Layouts (Page structure)
+│ ├── Sections (Page sections)
+│ │ ├── Components (Feature components)
+│ │ │ └── UI Elements (Basic components)
+```
+
+**Component File Structure:**
+```
+ComponentName/
+├── index.js # Export file
+├── ComponentName.jsx # Main component
+├── ComponentName.test.jsx # Unit tests
+├── ComponentName.stories.jsx # Storybook stories
+├── ComponentName.styles.css # Component styles
+├── ComponentName.types.ts # TypeScript types
+└── ComponentName.utils.js # Component utilities
+```
+
+### Service Layer Organization
+**API Services:**
+- Group related API calls in service files
+- Use consistent naming for CRUD operations
+- Implement error handling and retry logic
+- Include TypeScript types for requests/responses
+- Implement request/response interceptors
+
+**Business Logic Services:**
+- Separate from API services
+- Pure functions when possible
+- Clear input/output interfaces
+- Comprehensive unit test coverage
+- Handle business rules and validation
+
+**External Service Integrations:**
+- Separate service for each external API
+- Implement rate limiting and caching
+- Handle authentication and authorization
+- Provide fallback mechanisms
+
+### State Management Organization
+**Global State:**
+- User authentication state
+- Application configuration
+- Shared UI state (modals, notifications)
+- Global permissions and roles
+
+**Local State:**
+- Component-specific data
+- Form state
+- Temporary UI state
+- Component lifecycle state
+
+**State Structure:**
+```javascript
+{
+  auth: {
+    user: {},
+    token: '',
+    isAuthenticated: false,
+    permissions: [],
+    roles: []
+  },
+  ui: {
+    theme: 'light',
+    sidebarOpen: false,
+    notifications: [],
+    modals: {},
+    loading: {}
+  },
+  data: {
+    users: {},
+    products: {},
+    orders: {},
+    reports: {},
+    cache: {}
+  },
+  config: {
+    features: {},
+    settings: {},
+    environment: {}
+  }
+}
+```
+
+## Import/Export Standards
+
+### Import Organization
+```javascript
+// 1. Node modules and third-party libraries
+import React, { useState, useEffect } from "react";
+import { Router } from "express";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
+// 2. Internal services/utilities
+import { authService } from "../services/auth";
+import { formatDate } from "../utils/formatters";
+import { usePermissions } from "../hooks/usePermissions";
+
+// 3. Components
+import Header from "./Header";
+import UserProfile from "./UserProfile";
+import { LoadingSpinner } from "../components/ui";
+
+// 4. Types (TypeScript)
+import type { User, ApiResponse, Permission } from "../types";
+
+// 5. Constants and configuration
+import { API_ENDPOINTS, FEATURE_FLAGS } from "../config";
+
+// 6. Styles
+import "./Component.styles.css";
+```
+
+### Export Standards
+**Named Exports (Preferred):**
+```javascript
+export const ComponentName = () => { ... };
+export const helperFunction = () => { ... };
+export const CONSTANTS = { ... };
+```
+
+**Default Exports:**
+```javascript
+const ComponentName = () => { ... };
+export default ComponentName;
+```
+
+**Index Files:**
+```javascript
+// components/index.js
+export { default as Header } from "./Header";
+export { default as Footer } from "./Footer";
+export { default as UserProfile } from "./UserProfile";
+export { LoadingSpinner, Button, Input } from "./ui";
+```
+
+## Documentation Standards
+
+### Code Documentation
+**Function Documentation:**
+```javascript
+/**
+ * Formats a date string for display
+ * @param {string} dateString - ISO date string
+ * @param {string} format - Display format ('short' | 'long' | 'relative')
+ * @param {string} locale - Locale for formatting
+ * @returns {string} Formatted date string
+ * @throws {Error} If dateString is invalid
+ * @example
+ * formatDate('2023-12-25', 'long', 'en-US')
+ * // Returns: 'December 25, 2023'
+ */
+export const formatDate = (dateString, format = "short", locale = "en-US") => {
+  // Implementation
+};
+```
+
+**Component Documentation:**
+```javascript
+/**
+ * UserProfile component displays user information and actions
+ *
+ * @component
+ * @param {Object} props
+ * @param {User} props.user - User object containing profile data
+ * @param {Function} props.onEdit - Callback for edit action
+ * @param {boolean} props.editable - Whether profile can be edited
+ * @param {Permission[]} props.permissions - User permissions
+ * @example
+ * <UserProfile 
+ *   user={userData} 
+ *   onEdit={handleEdit} 
+ *   editable={true}
+ *   permissions={userPermissions}
+ * />
+ */
+export const UserProfile = ({ user, onEdit, editable = false, permissions = [] }) => {
+  // Component implementation
+};
+```
+
+### README Standards
+**Component README:**
+```markdown
+# ComponentName
+
+Brief description of component purpose and functionality.
+
+## Usage
+
+```jsx
+<ComponentName 
+  prop1="value" 
+  prop2={variable}
+  onAction={handleAction}
+/>
+```
+
+## Props
+
+| Prop  | Type    | Default | Required | Description          |
+| ----- | ------- | ------- | -------- | -------------------- |
+| prop1 | string  | ''      | Yes      | Description of prop1 |
+| prop2 | boolean | false   | No       | Description of prop2 |
+
+## Examples
+
+[Include usage examples and screenshots]
+
+## Accessibility
+
+[Document accessibility considerations]
+
+## Testing
+
+[Document testing approach and examples]
+```
+
+## Quality Assurance
+
+### Code Quality Checks
+- ESLint/Prettier configuration enforced
+- TypeScript strict mode enabled
+- Unit test coverage > 80%
+- Integration test coverage for critical paths
+- Accessibility testing for UI components
+- Performance testing for critical components
+- Security scanning for vulnerabilities
+
+### Performance Guidelines
+- Bundle size monitoring
+- Lazy loading for routes and heavy components
+- Image optimization and responsive images
+- Database query optimization
+- Caching strategies implemented
+- Code splitting for large applications
+- Memory leak prevention
+
+### Security Guidelines
+- Input validation on all user inputs
+- Authentication required for protected routes
+- HTTPS enforced in production
+- Environment variables for sensitive data
+- Regular dependency security audits
+- SQL injection prevention
+- XSS protection
+- CSRF protection
+- Rate limiting implementation
+
+### Enterprise-Specific Guidelines
+- Audit logging for all user actions
+- Data retention policies
+- Compliance with regulatory requirements
+- Multi-tenant architecture considerations
+- Disaster recovery procedures
+- Business continuity planning
+- Change management processes 

@@ -11,142 +11,222 @@ A powerful code agent built on Kiro spec-driven development principles, designed
 
 ### Core Components
 
-- **PRD Writer**: Automated Product Requirements Document generation
-- **Rules Architect**: Project core definition and governance
-- **Strategic Planner**: Project planning and roadmap development
-- **Task Executor**: Distributed task breakdown and execution
-- **Bug Fixer**: Intelligent bug detection and resolution
-- **Code Reviewer**: Pre-deployment code quality assurance
+- **David (PRD Writer)**: Expert Product Requirements Document generator with guided workflow
+- **Sarah (BP Builder)**: Comprehensive Business Plan builder and strategic planning specialist
+- **Daniel (Rules Architect)**: Project governance and documentation architect
+- **James (Strategic Planner)**: Software architect and collaborative planning specialist
+- **Emily (Task Executor)**: High-performance AI software engineer for rapid task execution
+- **Bug Fixer**: Expert debugging and troubleshooting specialist
+- **Code Reviewer**: Professional code review expert for quality assurance
 
-### Workflow
+## 🔄 Complete Workflow
 
-1. **Documentation Phase**: Use PRD Writer to generate comprehensive project documentation
-2. **Planning Phase**: Define project core rules and establish governance framework
-3. **Strategy Phase**: Develop project roadmap and strategic planning
-4. **Execution Phase**: Break down tasks into distributed, manageable components
-5. **Quality Assurance**: Implement code review and bug fixing processes
-6. **Deployment**: Ensure code quality before final deployment
+```mermaid
+graph TD
+    A[💡 Business Idea] --> B[📋 Sarah - BP Builder]
+    B --> C[📝 David - PRD Writer]
+    C --> D[🏗️ Daniel - Rules Architect]
+    D --> E[📊 James - Strategic Planner]
+    E --> F[⚡ Emily - Task Executor]
+    F --> G[🐛 Bug Fixer]
+    G --> H[🔍 Code Reviewer]
+    H --> I[✅ Production Ready]
+
+    %% Feedback loops
+    G --> F
+    H --> F
+    I --> C
+
+    %% Parallel processes
+    B --> E
+    C --> E
+    D --> E
+
+    %% Quality gates
+    F --> G{Issues?}
+    G -->|Yes| G
+    G -->|No| H
+    H -->|Fail| F
+    H -->|Pass| I
+
+    %% Styling
+    classDef business fill:#e1f5fe
+    classDef planning fill:#f3e5f5
+    classDef execution fill:#e8f5e8
+    classDef quality fill:#fff3e0
+
+    class A,B business
+    class C,D,E planning
+    class F execution
+    class G,H quality
+```
+
+### Workflow Phases
+
+1. **Business Planning Phase**: Sarah creates comprehensive business plans
+2. **Requirements Phase**: David generates detailed Product Requirements Documents
+3. **Governance Phase**: Daniel establishes project rules and architecture
+4. **Strategy Phase**: James develops technical roadmaps and implementation plans
+5. **Execution Phase**: Emily implements features with surgical precision
+6. **Quality Assurance**: Bug Fixer and Code Reviewer ensure code quality
+7. **Deployment**: Production-ready code with comprehensive testing
 
 ## 🤖 Agent Details
 
-### 📝 PRD Writer Agent
+### 📋 Sarah - BP Builder Agent
 
-**Purpose**: Expert Product Requirements Document generator and product management specialist
+**Purpose**: Expert Business Plan builder and strategic planning specialist
+
+**Key Capabilities**:
+
+- Creates comprehensive, investor-ready business plans
+- Performs market analysis and competitive intelligence
+- Develops financial projections and funding strategies
+- Provides go-to-market strategies and risk assessment
+
+**Usage Examples**:
+
+```bash
+# Guided business plan creation
+@bp-builder --guided
+
+# Industry-specific business plan
+@bp-builder --industry=saas "Create business plan for B2B project management platform"
+
+# Quick business plan generation
+@bp-builder "Create a business plan for a mobile fitness app targeting busy professionals"
+```
+
+**What It Delivers**:
+
+- Complete business plan document with all sections
+- Financial models and projections
+- Market research and competitive analysis
+- Risk assessment and mitigation strategies
+- Investor pitch materials and executive summaries
+
+### 📝 David - PRD Writer Agent
+
+**Purpose**: Expert Product Requirements Document generator with guided workflow
 
 **Key Capabilities**:
 
 - Transforms ideas into comprehensive, actionable product specifications
 - Creates user stories, acceptance criteria, and technical requirements
-- Generates implementation roadmaps and business analysis
-- Follows industry best practices and agile methodologies
+- Supports both new and existing projects with intelligent context detection
+- Integrates with business plans for strategic alignment
 
 **Usage Examples**:
 
 ```bash
-# Basic PRD generation
-@prd-writer "I need a PRD for a mobile app that helps users track their fitness goals"
+# Guided workflow for new users
+@prd-writer --guided
 
-# Advanced PRD with business context
-@prd-writer --template=saas "Create a comprehensive PRD for a B2B project management platform"
+# Quick PRD generation
+@prd-writer "Create a PRD for a mobile app that helps users track their fitness goals"
 
-# PRD with existing business documents
-@prd-writer --business-context="./docs/business-plan.pdf" "Create a PRD for our fitness app based on our business plan"
+# Project-specific PRD
+@prd-writer --project="existing" "Add user authentication feature to our app"
 ```
 
-**What It Does**:
+**What It Creates**:
 
-- Strategic analysis and market research
-- Requirements engineering and acceptance criteria
-- Technical planning and architecture recommendations
-- Project management and resource planning
-- Stakeholder communication and executive summaries
+- Comprehensive PRD in `.claude/docs/prd.md`
+- User stories and acceptance criteria
+- Technical specifications and implementation roadmaps
+- Business analysis and stakeholder communication materials
 
-### 🏗️ Rules Architect Agent
+### 🏗️ Daniel - Rules Architect Agent
 
 **Purpose**: Expert project analyst and documentation architect specializing in codebase analysis
 
 **Key Capabilities**:
 
 - Analyzes existing projects to extract technical architecture
-- Creates comprehensive project governance files (rules/)
+- Creates comprehensive project governance files (.claude/rules/)
 - Establishes product vision, organizational structure, and design systems
 - Provides standardized governance documentation for AI agents and teams
 
 **Usage Examples**:
 
 ```bash
-# Analyze existing project and create governance
-@rules-architect "Analyze this project and create comprehensive governance documentation"
+# Default foundation setup
+@Daniel --setup=default --guided
 
-# Update governance based on new changes
-@rules-architect --update=tech "Update technical governance after adding new framework"
+# Enterprise-level governance
+@Daniel --setup=enterprise --guided
 
-# Validate governance against current codebase
-@rules-architect --validate "Check if governance files align with current project state"
+# Analyze existing project
+@Daniel --analyze --guided
 ```
 
 **What It Creates**:
 
-- `rules/product.md` - Product vision and feature guidelines
-- `rules/tech.md` - Technology stack and technical standards
-- `rules/structure.md` - Project organization and file structure
-- `rules/style-guide.md` - UI/UX design system and standards
-- `rules/development.md` - Development workflows and processes
+- `.claude/rules/product.md` - Product vision and feature guidelines
+- `.claude/rules/tech.md` - Technology stack and technical standards
+- `.claude/rules/structure.md` - Project organization and file structure
+- `.claude/rules/style-guide.md` - UI/UX design system and standards
+- `.claude/rules/development.md` - Development workflows and processes
 
-### 📊 Strategic Planner Agent
+### 📊 James - Strategic Planner Agent
 
-**Purpose**: Expert project strategist and roadmap developer
+**Purpose**: Expert software architect and collaborative planning specialist
 
 **Key Capabilities**:
 
-- Develops comprehensive project roadmaps and strategic plans
-- Analyzes project scope and creates implementation strategies
-- Identifies dependencies, risks, and resource requirements
-- Creates milestone-based planning and timeline management
+- Translates business requirements into technical specifications
+- Creates detailed feature planning with 8-phase implementation structure
+- Manages dependencies and risk assessment
+- Provides intelligent project assessment and progress tracking
 
 **Usage Examples**:
 
 ```bash
-# Create strategic plan for new project
-@strategic-planner "Create a strategic plan for our e-commerce platform development"
+# Check project status
+James, status
 
-# Develop roadmap with specific constraints
-@strategic-planner --timeline=6months --budget=100k "Plan our mobile app development"
+# Plan new feature
+James, plan feature "user-authentication"
 
-# Update strategy based on new requirements
-@strategic-planner --update "Update our strategy to include new AI features"
+# Update existing feature
+James, update feature "user-dashboard"
+
+# Batch planning
+James, plan batch --features="auth,dashboard,profile"
 ```
 
 **What It Delivers**:
 
+- Feature requirements, design, and task breakdown
 - Project roadmap with phases and milestones
-- Resource allocation and timeline planning
-- Risk assessment and mitigation strategies
-- Success metrics and KPIs definition
-- Stakeholder communication plans
+- Dependency analysis and risk assessment
+- Progress tracking and completion monitoring
 
-### ⚡ Task Executor Agent
+### ⚡ Emily - Task Executor Agent
 
-**Purpose**: Distributed task management and execution specialist
+**Purpose**: High-performance AI software engineer specializing in rapid, precise task execution
 
 **Key Capabilities**:
 
-- Breaks down complex projects into manageable tasks
-- Creates detailed task specifications and acceptance criteria
-- Manages task dependencies and execution order
-- Provides progress tracking and milestone monitoring
+- Implements features from strategic plans with surgical precision
+- Maintains code quality with automated testing and quality checks
+- Provides step-by-step user guidance for optimal execution flow
+- Tracks progress and manages task dependencies
 
 **Usage Examples**:
 
 ```bash
-# Break down project into tasks
-@task-executor "Break down our mobile app development into executable tasks"
+# Execute next task in current feature
+@task-executor continue
 
-# Execute specific task with detailed steps
-@task-executor --task="user-authentication" "Create detailed implementation steps for user authentication"
+# Show all available features and tasks
+@task-executor scan
 
-# Monitor project progress
-@task-executor --status "Show current project progress and next steps"
+# Switch to specific feature
+@task-executor feature user-authentication
+
+# Check product requirements
+@task-executor product
 ```
 
 **What It Manages**:
@@ -155,7 +235,70 @@ A powerful code agent built on Kiro spec-driven development principles, designed
 - Implementation steps and technical specifications
 - Dependency management and critical path analysis
 - Progress tracking and milestone achievement
-- Resource allocation and timeline management
+- Quality assurance and automated testing
+
+### 🐛 Bug Fixer Agent
+
+**Purpose**: Expert debugging and troubleshooting specialist
+
+**Key Capabilities**:
+
+- Deep expertise in root cause analysis and error investigation
+- Systematic problem resolution with scientific debugging methodology
+- Comprehensive diagnostic tools and evidence-based solutions
+- Automatic activation for errors, test failures, and performance issues
+
+**Usage Examples**:
+
+```bash
+# Automatic activation on errors
+# Triggered when encountering exceptions, failures, or performance issues
+
+# Manual debugging session
+@bug-fixer "Debug the authentication timeout issue"
+
+# Performance analysis
+@bug-fixer "Analyze slow database queries"
+```
+
+**What It Provides**:
+
+- Systematic error investigation and classification
+- Root cause analysis with evidence collection
+- Comprehensive debugging reports and resolution plans
+- Prevention measures and monitoring enhancements
+
+### 🔍 Code Reviewer Agent
+
+**Purpose**: Professional code review expert specializing in comprehensive quality assessment
+
+**Key Capabilities**:
+
+- Comprehensive quality assessment and security analysis
+- Maintainability evaluation and performance optimization
+- Structured feedback with actionable recommendations
+- Automatic triggering after code modifications
+
+**Usage Examples**:
+
+```bash
+# Automatic review after code changes
+# Triggered automatically after commits
+
+# Manual code review
+@code-reviewer "Review the authentication module"
+
+# Security-focused review
+@code-reviewer --security "Security review of payment processing"
+```
+
+**What It Assesses**:
+
+- Code quality and readability standards
+- Security vulnerabilities and best practices
+- Performance optimization opportunities
+- Testing coverage and maintainability
+- Documentation and compliance requirements
 
 ## 🚀 Getting Started
 
@@ -179,115 +322,146 @@ A powerful code agent built on Kiro spec-driven development principles, designed
    - Close Claude Code completely
    - Restart the application
 
-3. **Access the Agent**
+3. **Access the Agents**
 
    - Open Claude Code
-   - The Spec-Driven Claude Code agent will be available in your agent list
+   - All agents will be available in your agent list
 
 ### Usage
 
-Once the agent is loaded, you can:
+Once the agents are loaded, you can follow the complete workflow:
 
-1. **Initialize Project**
+1. **Start with Business Planning**
 
-   - Mention the agent and start with project initialization
+   ```bash
+   @bp-builder --guided
+   ```
 
-2. **Generate PRD**
+2. **Generate Product Requirements**
 
-   - Ask the agent to help create Product Requirements Documents
+   ```bash
+   @prd-writer --guided
+   ```
 
-3. **Define Rules**
+3. **Establish Project Governance**
 
-   - Use the agent to establish project rules and governance
+   ```bash
+   @Daniel --setup=default --guided
+   ```
 
-4. **Plan Strategy**
+4. **Create Strategic Plan**
 
-   - Develop comprehensive project roadmaps and strategic plans
+   ```bash
+   James, plan feature "core-features"
+   ```
 
-5. **Execute Tasks**
+5. **Execute Implementation**
 
-   - Break down and execute distributed tasks
+   ```bash
+   @task-executor continue
+   ```
 
-6. **Review Code**
+6. **Quality Assurance**
 
-   - Perform code reviews before deployment
-
-7. **Fix Bugs**
-
-   - Use the bug fixer when encountering issues
+   - Bug Fixer activates automatically on issues
+   - Code Reviewer provides quality assessment
 
 ## 🔄 Agent Workflow Integration
 
 ### Complete Project Lifecycle
 
 ```bash
-# 1. Start with PRD Writer
-@prd-writer "Create a PRD for our new SaaS platform"
+# 1. Business Planning
+@bp-builder --guided
+# → Creates comprehensive business plan
 
-# 2. Establish governance with Rules Architect
-@rules-architect "Create governance documentation for our SaaS project"
+# 2. Product Requirements
+@prd-writer --guided
+# → Creates PRD with business context
 
-# 3. Develop strategy with Strategic Planner
-@strategic-planner "Create a 12-month roadmap for our SaaS platform"
+# 3. Project Governance
+@Daniel --setup=enterprise --guided
+# → Establishes project architecture
 
-# 4. Execute tasks with Task Executor
-@task-executor "Break down our SaaS platform into executable development tasks"
+# 4. Strategic Planning
+James, plan feature "user-authentication"
+# → Creates detailed implementation plan
 
-# 5. Monitor and adjust throughout development
-@task-executor --status "Show current progress and next priorities"
+# 5. Task Execution
+@task-executor continue
+# → Implements features with precision
+
+# 6. Quality Assurance
+# → Bug Fixer and Code Reviewer ensure quality
 ```
 
 ### Agent Collaboration Examples
 
-**New Project Setup**:
+**New Startup Project**:
 
 ```bash
-# Comprehensive project initialization
-@prd-writer "Create PRD for fitness tracking app"
-@rules-architect "Analyze requirements and create governance"
-@strategic-planner "Develop 6-month development roadmap"
-@task-executor "Break down into sprint-ready tasks"
+# Complete startup workflow
+@bp-builder --guided
+@prd-writer --guided
+@Daniel --setup=default --guided
+James, plan feature "mvp-features"
+@task-executor continue
 ```
 
-**Feature Development**:
+**Existing Project Enhancement**:
 
 ```bash
-# Feature-specific workflow
-@prd-writer "Create PRD for user authentication feature"
-@rules-architect --update=tech "Update technical governance for auth"
-@strategic-planner "Plan auth feature implementation timeline"
-@task-executor "Create detailed auth implementation tasks"
+# Feature addition workflow
+@prd-writer --project="existing" "Add payment processing"
+@Daniel --update=tech
+James, plan feature "payment-system"
+@task-executor feature payment-system
 ```
 
-**Project Maintenance**:
+**Enterprise Project Setup**:
 
 ```bash
-# Ongoing project management
-@rules-architect --validate "Check governance alignment"
-@strategic-planner --update "Update roadmap based on progress"
-@task-executor --status "Review current task status"
+# Enterprise-level workflow
+@bp-builder --industry=enterprise --guided
+@prd-writer --template=enterprise --guided
+@Daniel --setup=enterprise --guided
+James, plan batch --features="auth,dashboard,admin,api"
+@task-executor autonomous
 ```
 
 ## 📁 Project Structure
 
 ```
-claude-code-agent/
-├── src/
-│   ├── prd-writer/
-│   ├── rules-engine/
-│   ├── strategic-planner/
-│   ├── task-manager/
-│   ├── bug-fixer/
-│   └── code-reviewer/
-├── rules/
-│   ├── product.md
-│   ├── tech.md
-│   ├── structure.md
-│   ├── style-guide.md
-│   └── development.md
-├── docs/
-├── tests/
-└── config/
+spec-driven-claude-code/
+├── .claude/
+│   ├── agents/
+│   │   ├── 1.david-prd-writer.md
+│   │   ├── 2.daniel-rules-architect.md
+│   │   ├── 3.strategic-planner.md
+│   │   ├── 4.task-executor.md
+│   │   ├── bp-builder.md
+│   │   ├── bug-fixer.md
+│   │   └── code-reviewer.md
+│   ├── rules/
+│   │   ├── product.md
+│   │   ├── tech.md
+│   │   ├── structure.md
+│   │   ├── style-guide.md
+│   │   └── development.md
+│   ├── docs/
+│   │   └── prd.md
+│   ├── features/
+│   │   ├── 1.user-authentication/
+│   │   │   ├── requirements.md
+│   │   │   ├── design.md
+│   │   │   └── tasks.md
+│   │   ├── 2.user-dashboard/
+│   │   │   ├── requirements.md
+│   │   │   ├── design.md
+│   │   │   └── tasks.md
+│   └── business-plan/
+│       └── main-business-plan.md
+└── README.md
 ```
 
 ## 🔧 Configuration
@@ -300,14 +474,39 @@ PROJECT_NAME=your_project_name
 ENVIRONMENT=development
 ```
 
-### Rules Configuration
+### Agent Configuration
 
 ```json
 {
-  "project_rules": {
-    "code_standards": "strict",
-    "review_required": true,
-    "auto_fix": true
+  "agents": {
+    "bp_builder": {
+      "auto_business_plan": true,
+      "industry_templates": ["saas", "fintech", "healthcare"]
+    },
+    "prd_writer": {
+      "guided_workflow": true,
+      "templates": ["general", "saas", "mobile", "api"]
+    },
+    "rules_architect": {
+      "governance_level": "enterprise",
+      "auto_analysis": true
+    },
+    "strategic_planner": {
+      "planning_mode": "comprehensive",
+      "dependency_analysis": true
+    },
+    "task_executor": {
+      "execution_mode": "guided",
+      "quality_checks": true
+    },
+    "bug_fixer": {
+      "auto_trigger": true,
+      "debugging_level": "comprehensive"
+    },
+    "code_reviewer": {
+      "auto_review": true,
+      "security_focus": true
+    }
   }
 }
 ```
@@ -353,6 +552,7 @@ If you encounter any issues or have questions:
 - **v1.0.0**: Initial release with core functionality
 - **v1.1.0**: Added bug fixer and code reviewer
 - **v1.2.0**: Enhanced distributed task management
+- **v2.0.0**: Complete agent ecosystem with business planning integration
 
 ---
 

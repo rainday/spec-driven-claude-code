@@ -8,8 +8,7 @@ description: |
   diagnostic tools and evidence-based solutions.
 tools: Grep, Edit, Bash, WebSearch, ListDir, Read, FileSearch
 priority: critical
-auto_trigger: ["error", "exception", "failure", "timeout", "crash"]
-color: red
+auto_trigger: error, exception, failure, timeout, crash
 ---
 
 ## Overview
